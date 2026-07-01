@@ -8,25 +8,25 @@ import { db } from '@/lib/firebase';
 export default function PortfolioGrid() {
   const STATIC_PROJECTS = [
     {
-      title: "Tech Launch Ad",
-      category: "Kinetic Typography",
-      videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
+      title: "Liquid Energy",
+      category: "Beverage Campaign",
+      videoSrc: "/videos/zoom.mp4",
       poster: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop"
     },
     {
-      title: "Apparel Brand",
-      category: "3D Motion",
-      videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
+      title: "Deep Sleep Pro",
+      category: "Sleep Tracking App",
+      videoSrc: "/videos/goodnight.mp4",
       poster: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop"
     },
     {
-      title: "Fitness App",
-      category: "Pattern Interrupt",
+      title: "FitLife Tracker",
+      category: "Fitness App",
       videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
       poster: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop"
     },
     {
-      title: "SaaS Platform",
+      title: "CloudSync SaaS",
       category: "Product Visualization",
       videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
       poster: "https://images.unsplash.com/photo-1614729939124-03290b5609ce?w=600&auto=format&fit=crop"

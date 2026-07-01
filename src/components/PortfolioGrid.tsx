@@ -1,10 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 export default function PortfolioGrid() {
-  const projects = [
+  const STATIC_PROJECTS = [
     {
       title: "Tech Launch Ad",
       category: "Kinetic Typography",
@@ -30,6 +32,30 @@ export default function PortfolioGrid() {
       poster: "https://images.unsplash.com/photo-1614729939124-03290b5609ce?w=600&auto=format&fit=crop"
     }
   ];
+
+  const [projects, setProjects] = useState<any[]>(STATIC_PROJECTS);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const q = query(collection(db, 'projects'), orderBy('order', 'asc'));
+        const querySnapshot = await getDocs(q);
+        const fetchedProjects = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        if (fetchedProjects.length > 0) {
+          setProjects(fetchedProjects);
+        }
+      } catch (error) {
+        console.error("Error fetching projects from Firestore:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProjects();
+  }, []);
 
   return (
     <section className="py-24 bg-[#050505] relative z-10">

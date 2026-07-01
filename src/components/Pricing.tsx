@@ -6,7 +6,7 @@ export default function Pricing() {
   const tiers = [
     {
       name: "The Hero Ad",
-      price: "$400",
+      price: "$260",
       period: "one-off",
       description: "Best for testing premium motion.",
       features: [
@@ -20,7 +20,7 @@ export default function Pricing() {
     },
     {
       name: "The Growth Engine",
-      price: "$1,500",
+      price: "$975",
       period: "/mo",
       description: "Best for growing brands needing consistent, high-performing creative.",
       features: [
@@ -35,7 +35,7 @@ export default function Pricing() {
     },
     {
       name: "The Scale Engine",
-      price: "$3,000",
+      price: "$1,950",
       period: "/mo",
       description: "Best for scaling spend.",
       features: [

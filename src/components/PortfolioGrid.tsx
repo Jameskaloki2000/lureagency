@@ -16,7 +16,7 @@ export default function PortfolioGrid() {
     {
       title: "Deep Sleep Pro",
       category: "Sleep Tracking App",
-      videoSrc: "/videos/goodnights.mp4",
+      videoSrc: "/videos/goodnightsapp.mp4",
       poster: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop"
     },
     {

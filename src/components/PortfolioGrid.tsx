@@ -153,7 +153,6 @@ export default function PortfolioGrid() {
               <video
                 ref={videoRef}
                 src={selectedProject.videoSrc}
-                poster={selectedProject.poster}
                 controls
                 playsInline
                 className="w-full h-full object-contain"
@@ -190,21 +189,14 @@ function ProjectCard({ project, index, onClick }: { project: any, index: number,
       onClick={onClick}
     >
       <div className="absolute inset-0 z-0 bg-black">
-        {/* Placeholder Image when not hovered or while loading */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-in-out"
-          style={{ backgroundImage: `url(${project.poster})`, opacity: isHovered ? 0.3 : 0.6 }}
-        />
-        
-        {/* Video plays on hover */}
+        {/* Video plays continuously */}
         <video
           src={project.videoSrc}
-          poster={project.poster}
           loop
           muted
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
-          autoPlay={isHovered}
+          autoPlay
+          className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
         />
       </div>
 

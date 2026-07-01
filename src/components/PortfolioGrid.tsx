@@ -27,7 +27,7 @@ export default function PortfolioGrid() {
     },
     {
       title: "Depi",
-      category: "Health Supplement",
+      category: "Ashwagandha Supplement",
       videoSrc: "/videos/depi.mp4",
       poster: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop"
     }

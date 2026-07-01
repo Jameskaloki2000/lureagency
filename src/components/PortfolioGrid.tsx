@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 
@@ -16,7 +16,7 @@ export default function PortfolioGrid() {
     {
       title: "Deep Sleep Pro",
       category: "Sleep Tracking App",
-      videoSrc: "/videos/goodnight.mp4",
+      videoSrc: "/videos/goodnights.mp4",
       poster: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop"
     },
     {
@@ -36,10 +36,20 @@ export default function PortfolioGrid() {
   const [projects, setProjects] = useState<any[]>(STATIC_PROJECTS);
   const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = 'hidden';
+      // Safe play invocation after DOM mounts
+      const timer = setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.play().catch(error => {
+            console.log("Autoplay blocked by browser policy, user needs to click play manually.", error);
+          });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -102,7 +112,10 @@ export default function PortfolioGrid() {
               key={index} 
               project={project} 
               index={index} 
-              onClick={() => setSelectedProject(project)}
+              onClick={() => {
+                console.log("Card clicked, opening project:", project.title, "Source:", project.videoSrc);
+                setSelectedProject(project);
+              }}
             />
           ))}
         </div>
@@ -138,9 +151,10 @@ export default function PortfolioGrid() {
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
             >
               <video
+                ref={videoRef}
                 src={selectedProject.videoSrc}
                 controls
-                autoPlay
+                playsInline
                 className="w-full h-full object-contain"
               />
               {/* Project Details Overlay at the bottom */}

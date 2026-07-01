@@ -26,10 +26,10 @@ export default function PortfolioGrid() {
       poster: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop"
     },
     {
-      title: "CloudSync SaaS",
-      category: "Product Visualization",
-      videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
-      poster: "https://images.unsplash.com/photo-1614729939124-03290b5609ce?w=600&auto=format&fit=crop"
+      title: "Depi",
+      category: "Health Supplement",
+      videoSrc: "/videos/depi.mp4",
+      poster: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop"
     }
   ];
 

@@ -36,7 +36,7 @@ export default function Footer() {
               Ready to see your products <span className="text-gradient">in motion?</span>
             </h2>
             <p className="text-xl text-gray-400 mb-8 font-light">
-              Book a quick 15-minute fit call to see if we're a match.
+              Book a quick 15-minute discovery call to see how we can lower your CPA and scale your brand.
             </p>
             
             <div className="w-full max-w-md aspect-video bg-[#111111] border border-white/10 rounded-xl flex flex-col items-center justify-center p-6 relative overflow-hidden group cursor-pointer hover:border-[#00f0ff]/50 transition-colors">

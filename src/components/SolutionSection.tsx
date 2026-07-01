@@ -23,11 +23,11 @@ export default function SolutionSection() {
         >
           <h2 className="text-sm font-bold tracking-widest uppercase text-[#00f0ff] mb-4">The Solution</h2>
           <h3 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-tight">
-            I turn your products into <br className="hidden md:block" /> 
-            <span className="text-gradient">high-end motion ads.</span>
+            We turn your products into <br className="hidden md:block" /> 
+            <span className="text-gradient">high-converting motion ads.</span>
           </h3>
           <p className="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
-            We combine the raw power of cinematic engines like Kling AI and Seedance 2.0 with custom-trained Nano & Banana models to generate hyper-dynamic, pattern-interrupting visual assets. Everything is directed through Higgsfield and locked together inside Final Cut Pro for flawless timing and sound design.
+            We leverage cutting-edge motion design and cinematic AI to generate hyper-dynamic, pattern-interrupting creative. The result? Studio-quality video ads that capture attention instantly, drive clicks, and scale your revenue—all without the massive traditional production costs.
           </p>
         </motion.div>
 

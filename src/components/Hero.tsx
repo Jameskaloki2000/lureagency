@@ -45,7 +45,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
           <p className="mt-4 text-xl md:text-2xl text-gray-400 max-w-3xl font-light">
-            Premium motion creative that turns your products into your best-performing ads — engineered to stop the scroll in the first second, and delivered in days, not weeks.
+            Premium motion creative that turns your products into your best-performing ads. Engineered to stop the scroll in the first second, lower your CPA, and delivered in days, not weeks.
           </p>
         </motion.div>
 
@@ -62,7 +62,7 @@ export default function Hero() {
             <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-[#00f0ff] blur-md group-hover:opacity-100 group-hover:blur-lg transition-all"></span>
             <span className="absolute inset-0 w-full h-full transition duration-300 ease-out border-2 border-[#00f0ff] rounded-lg shadow-lg group-hover:bg-[#00f0ff]/10"></span>
             <span className="relative flex items-center">
-              See the Angles
+              See Our Work
               <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </span>
           </a>

@@ -22,7 +22,7 @@ export default function Pricing() {
       name: "The Growth Engine",
       price: "$1,500",
       period: "/mo",
-      description: "Best for brands running paid social.",
+      description: "Best for growing brands needing consistent, high-performing creative.",
       features: [
         "5 ads/month",
         "Up to 3 hooks/ad",

@@ -24,9 +24,9 @@ export default function ProcessTimeline() {
     },
     {
       num: "04",
-      title: "Refine, run, iterate",
+      title: "Launch & Scale",
       time: "Ongoing",
-      desc: "We review data, tweak hooks, and scale what converts."
+      desc: "You run the ads, we review the data, tweak the hooks, and double down on what maximizes your ROAS."
     }
   ];
 

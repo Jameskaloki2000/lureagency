@@ -7,7 +7,7 @@ export default function ImpactSection() {
     {
       title: "Engagement & CTR",
       value: "2-3x",
-      description: "Motion graphic ads consistently achieve 2x to 3x higher click-through rates compared to static image ads.",
+      description: "Motion graphic ads consistently achieve 2x to 3x higher click-through rates (CTR) compared to static images, significantly lowering your overall acquisition costs.",
     },
     {
       title: "Message Retention",
@@ -15,7 +15,7 @@ export default function ImpactSection() {
       description: "Viewers retain 95% of a message when they watch it in a video, compared to just 10% when reading it in text.",
     },
     {
-      title: "Conversion Impact",
+      title: "More Conversions",
       value: "70%",
       description: "Of marketing professionals report that motion and video content generate more conversions than static formats.",
     }

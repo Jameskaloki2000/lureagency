@@ -15,13 +15,13 @@ export default function ProblemSection() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-              Why Your Ads Are <span className="text-red-500">Getting Ignored</span>
+              Why Your Ad Spend Is <span className="text-red-500">Going To Waste</span>
             </h2>
             <p className="text-xl text-gray-400 font-light mb-6">
-              Your audience scrolls past most of what they see in under a second. Static images and quick phone clips blend into the feed.
+              Your audience scrolls past most of what they see in under a second. Static images and cheap phone clips just blend into the feed, burning through your budget without driving clicks.
             </p>
             <p className="text-xl text-gray-400 font-light mb-8">
-              The brands winning right now aren't spending more on ads. <strong className="text-white font-medium">They're feeding the algorithm a steady stream of fresh, premium motion creative.</strong>
+              The brands winning right now aren't just spending more. <strong className="text-white font-medium">They're feeding the algorithm a steady stream of fresh, premium motion creative that actually converts.</strong>
             </p>
           </motion.div>
 

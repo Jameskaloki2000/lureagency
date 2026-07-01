@@ -11,13 +11,13 @@ export default function PortfolioGrid() {
       title: "Liquid Energy",
       category: "Beverage Campaign",
       videoSrc: "/videos/zoom.mp4",
-      poster: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop"
+      poster: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&auto=format&fit=crop"
     },
     {
       title: "Deep Sleep Pro",
       category: "Sleep Tracking App",
       videoSrc: "/videos/goodnightsapp.mp4",
-      poster: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop"
+      poster: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop"
     },
     {
       title: "Krusities Pizza",

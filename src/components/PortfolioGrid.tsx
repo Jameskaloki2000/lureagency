@@ -20,10 +20,10 @@ export default function PortfolioGrid() {
       poster: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop"
     },
     {
-      title: "FitLife Tracker",
-      category: "Fitness App",
-      videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
-      poster: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop"
+      title: "Krusities Pizza",
+      category: "Halal Italian Pizza",
+      videoSrc: "/videos/krusties.mp4",
+      poster: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop"
     },
     {
       title: "CloudSync SaaS",

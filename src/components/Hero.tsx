@@ -56,7 +56,7 @@ export default function Hero() {
           className="mt-10"
         >
           <a
-            href="#pricing"
+            href="#work"
             className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 ease-in-out"
           >
             <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-[#00f0ff] blur-md group-hover:opacity-100 group-hover:blur-lg transition-all"></span>

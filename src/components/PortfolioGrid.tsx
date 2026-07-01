@@ -88,7 +88,7 @@ export default function PortfolioGrid() {
   }, []);
 
   return (
-    <section className="py-24 bg-[#050505] relative z-10">
+    <section id="work" className="py-24 bg-[#050505] relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <motion.div
@@ -155,6 +155,7 @@ export default function PortfolioGrid() {
                 src={selectedProject.videoSrc}
                 controls
                 playsInline
+                preload="auto"
                 className="w-full h-full object-contain"
               />
               {/* Project Details Overlay at the bottom */}
@@ -202,7 +203,7 @@ function ProjectCard({ project, index, onClick }: { project: any, index: number,
           loop
           muted
           playsInline
-          preload="none"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
         />
       </div>

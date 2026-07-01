@@ -48,6 +48,7 @@ export default function ProblemSection() {
               <div className="w-1/2 h-full relative overflow-hidden transition-all duration-500 group-hover:w-[80%] flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#00f0ff]/20 to-[#b026ff]/20 z-0"></div>
                 <video
+                  preload="auto"
                   autoPlay
                   muted
                   loop

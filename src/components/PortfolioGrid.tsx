@@ -176,12 +176,18 @@ export default function PortfolioGrid() {
 
 function ProjectCard({ project, index, onClick }: { project: any, index: number, onClick: () => void }) {
   const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
+      onViewportEnter={() => {
+        if (videoRef.current) {
+          videoRef.current.play().catch(e => console.log("Video autoplay prevented:", e));
+        }
+      }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative group rounded-2xl overflow-hidden bg-[#111111] aspect-[4/3] border border-white/5 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
@@ -189,13 +195,14 @@ function ProjectCard({ project, index, onClick }: { project: any, index: number,
       onClick={onClick}
     >
       <div className="absolute inset-0 z-0 bg-black">
-        {/* Video plays continuously */}
+        {/* Video plays continuously once in view */}
         <video
+          ref={videoRef}
           src={project.videoSrc}
           loop
           muted
           playsInline
-          autoPlay
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
         />
       </div>

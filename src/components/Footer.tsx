@@ -7,7 +7,7 @@ export default function Footer() {
   const faqs = [
     {
       q: "How fast is delivery?",
-      a: "For the Growth and Scale engine tiers, you can expect the first concepts within 5 days of sending your assets/product. Rolling turnaround means a constant pipeline of fresh creative."
+      a: "For the Growth and Scale engine tiers, you can expect the first concepts within 3 days of sending your assets/product. Rolling turnaround means a constant pipeline of fresh creative."
     },
     {
       q: "Do you write the hooks?",

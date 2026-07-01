@@ -1,11 +1,13 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
-import PortfolioGrid from "@/components/PortfolioGrid";
-import ImpactSection from "@/components/ImpactSection";
-import SolutionSection from "@/components/SolutionSection";
-import ProcessTimeline from "@/components/ProcessTimeline";
-import Pricing from "@/components/Pricing";
-import Guarantee from "@/components/Guarantee";
-import Footer from "@/components/Footer";
+
+const PortfolioGrid = dynamic(() => import("@/components/PortfolioGrid"), { ssr: true });
+const ImpactSection = dynamic(() => import("@/components/ImpactSection"), { ssr: true });
+const SolutionSection = dynamic(() => import("@/components/SolutionSection"), { ssr: true });
+const ProcessTimeline = dynamic(() => import("@/components/ProcessTimeline"), { ssr: true });
+const Pricing = dynamic(() => import("@/components/Pricing"), { ssr: true });
+const Guarantee = dynamic(() => import("@/components/Guarantee"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 
 export default function Home() {
   return (

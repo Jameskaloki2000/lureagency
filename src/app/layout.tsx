@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Motion Creative | Scroll-Stopping Ads",
-  description: "I turn your products into high-end motion ads — kinetic, sound-designed, platform-native videos built to stop the scroll.",
+  title: "Lure Design Agency | Premium Motion Creative",
+  description: "James Kaloki turns your products into high-end motion ads — kinetic, sound-designed, platform-native videos built to stop the scroll.",
 };
 
 export default function RootLayout({

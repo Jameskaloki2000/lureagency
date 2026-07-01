@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import ProblemSection from "@/components/ProblemSection";
+import PortfolioGrid from "@/components/PortfolioGrid";
 import SolutionSection from "@/components/SolutionSection";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Pricing from "@/components/Pricing";
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-[#050505]">
       <Hero />
-      <ProblemSection />
+      <PortfolioGrid />
       <SolutionSection />
       <ProcessTimeline />
       <Pricing />

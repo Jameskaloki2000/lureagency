@@ -5,15 +5,20 @@ import { motion } from 'framer-motion';
 export default function Hero() {
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Background Video Placeholder */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Video Placeholder with highly compressed blurred WebP fallback */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=20&w=200&blur=50&auto=format&fit=crop')" }}
+      >
         <video
+          preload="auto"
           autoPlay
           muted
           loop
           playsInline
           className="object-cover w-full h-full opacity-40 mix-blend-screen"
         >
+          <source src="https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4" type="video/webm" />
           <source src="https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4" type="video/mp4" />
         </video>
         {/* Gradient Overlay for better text readability */}

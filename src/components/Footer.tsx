@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
-          <p>© {new Date().getFullYear()} HighMD Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Lure Design Agency by James Kaloki. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">Twitter</a>
             <a href="#" className="hover:text-white transition-colors">Instagram</a>

@@ -1,0 +1,113 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+
+export default function PortfolioGrid() {
+  const projects = [
+    {
+      title: "Tech Launch Ad",
+      category: "Kinetic Typography",
+      videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
+      poster: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop"
+    },
+    {
+      title: "Apparel Brand",
+      category: "3D Motion",
+      videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
+      poster: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop"
+    },
+    {
+      title: "Fitness App",
+      category: "Pattern Interrupt",
+      videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
+      poster: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&auto=format&fit=crop"
+    },
+    {
+      title: "SaaS Platform",
+      category: "Product Visualization",
+      videoSrc: "https://videos.pexels.com/video-files/3163534/3163534-uhd_3840_2160_30fps.mp4",
+      poster: "https://images.unsplash.com/photo-1614729939124-03290b5609ce?w=600&auto=format&fit=crop"
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-[#050505] relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+              The <span className="text-gradient">Work.</span>
+            </h2>
+            <p className="text-xl text-gray-400 font-light max-w-xl">
+              A collection of high-converting creative built to dominate the feed.
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({ project, index }: { project: any, index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="relative group rounded-2xl overflow-hidden bg-[#111111] aspect-[4/3] border border-white/5 cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="absolute inset-0 z-0 bg-black">
+        {/* Placeholder Image when not hovered or while loading */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-in-out"
+          style={{ backgroundImage: `url(${project.poster})`, opacity: isHovered ? 0 : 0.6 }}
+        />
+        
+        {/* Video plays on hover */}
+        <video
+          src={project.videoSrc}
+          loop
+          muted
+          playsInline
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+          autoPlay={isHovered}
+        />
+      </div>
+
+      {/* Hover Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300 z-10" />
+
+      {/* Content */}
+      <div className="absolute inset-0 p-8 flex flex-col justify-end z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+        <span className="text-[#00f0ff] text-xs font-bold tracking-widest uppercase mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+          {project.category}
+        </span>
+        <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
+          {project.title}
+        </h3>
+      </div>
+      
+      {/* Interactive indicator */}
+      <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+        <svg className="w-4 h-4 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+      </div>
+    </motion.div>
+  );
+}

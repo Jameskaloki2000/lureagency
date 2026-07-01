@@ -26,7 +26,7 @@ export default function PortfolioGrid() {
       poster: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop"
     },
     {
-      title: "Depi",
+      title: "Ginda",
       category: "Ashwagandha Supplement",
       videoSrc: "/videos/depi.mp4",
       poster: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop"
@@ -200,10 +200,11 @@ function ProjectCard({ project, index, onClick }: { project: any, index: number,
         <video
           ref={videoRef}
           src={project.videoSrc}
+          poster={project.poster}
           loop
           muted
           playsInline
-          preload="auto"
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
         />
       </div>

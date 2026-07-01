@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
@@ -35,6 +35,26 @@ export default function PortfolioGrid() {
 
   const [projects, setProjects] = useState<any[]>(STATIC_PROJECTS);
   const [loading, setLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedProject(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   useEffect(() => {
     async function fetchProjects() {
@@ -78,15 +98,69 @@ export default function PortfolioGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+            <ProjectCard 
+              key={index} 
+              project={project} 
+              index={index} 
+              onClick={() => setSelectedProject(project)}
+            />
           ))}
         </div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-md"
+            onClick={() => setSelectedProject(null)}
+          >
+            {/* Close button */}
+            <button 
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 z-50 bg-white/5 rounded-full backdrop-blur"
+              onClick={() => setSelectedProject(null)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Modal Container */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 bg-[#111111] shadow-2xl"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            >
+              <video
+                src={selectedProject.videoSrc}
+                controls
+                autoPlay
+                className="w-full h-full object-contain"
+              />
+              {/* Project Details Overlay at the bottom */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
+                <span className="text-[#00f0ff] text-xs font-bold tracking-widest uppercase mb-1 block">
+                  {selectedProject.category}
+                </span>
+                <h3 className="text-xl font-bold text-white">
+                  {selectedProject.title}
+                </h3>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
 
-function ProjectCard({ project, index }: { project: any, index: number }) {
+function ProjectCard({ project, index, onClick }: { project: any, index: number, onClick: () => void }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -98,6 +172,7 @@ function ProjectCard({ project, index }: { project: any, index: number }) {
       className="relative group rounded-2xl overflow-hidden bg-[#111111] aspect-[4/3] border border-white/5 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
     >
       <div className="absolute inset-0 z-0 bg-black">
         {/* Placeholder Image when not hovered or while loading */}

@@ -45,9 +45,9 @@ export default function PortfolioGrid() {
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = 'hidden';
-      // Safe play invocation after DOM mounts
       const timer = setTimeout(() => {
         if (videoRef.current) {
+          videoRef.current.playbackRate = 1.0;
           videoRef.current.play().catch(error => {
             console.log("Autoplay blocked by browser policy, user needs to click play manually.", error);
           });
@@ -190,6 +190,7 @@ function ProjectCard({ project, index, onClick }: { project: any, index: number,
       viewport={{ once: true, margin: "-50px" }}
       onViewportEnter={() => {
         if (videoRef.current) {
+          videoRef.current.playbackRate = 1.0;
           videoRef.current.play().catch(e => console.log("Video autoplay prevented:", e));
         }
       }}

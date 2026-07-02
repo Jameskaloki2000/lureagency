@@ -19,7 +19,7 @@ export default function ProcessTimeline() {
     {
       num: "03",
       title: "First concepts land",
-      time: "Within 3 days",
+      time: "3 days",
       desc: "You receive the first batch of scroll-stopping motion creative."
     },
     {

@@ -199,6 +199,14 @@ function ProjectCard({ project, index, onClick }: { project: any, index: number,
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
     >
+      {/* Preload high-quality video on hover */}
+      {isHovered && project.videoSrc && (
+        <link rel="preload" as="video" href={project.videoSrc} />
+      )}
+      {isHovered && project.videoSrc && (
+        <video src={project.videoSrc} preload="auto" style={{ display: 'none' }} />
+      )}
+
       <div className="absolute inset-0 z-0 bg-black">
         {/* Video plays continuously once in view */}
         <video

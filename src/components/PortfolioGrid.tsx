@@ -11,24 +11,28 @@ export default function PortfolioGrid() {
       title: "Liquid Energy",
       category: "Beverage Campaign",
       videoSrc: "/videos/zoom.mp4",
+      previewVideoSrc: "/videos/zoom_preview.mp4",
       poster: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&auto=format&fit=crop"
     },
     {
       title: "Deep Sleep Pro",
       category: "Sleep Tracking App",
       videoSrc: "/videos/goodnightsapp.mp4",
+      previewVideoSrc: "/videos/goodnightsapp_preview.mp4",
       poster: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop"
     },
     {
       title: "Krusities Pizza",
       category: "Halal Italian Pizza",
       videoSrc: "/videos/krusties.mp4",
+      previewVideoSrc: "/videos/krusties_preview.mp4",
       poster: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop"
     },
     {
       title: "Ginda",
       category: "Ashwagandha Supplement",
       videoSrc: "/videos/depi.mp4",
+      previewVideoSrc: "/videos/depi_preview.mp4",
       poster: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop"
     }
   ];
@@ -199,12 +203,12 @@ function ProjectCard({ project, index, onClick }: { project: any, index: number,
         {/* Video plays continuously once in view */}
         <video
           ref={videoRef}
-          src={project.videoSrc}
-          poster={project.poster}
+          src={project.previewVideoSrc || project.videoSrc}
           loop
           muted
           playsInline
-          preload="none"
+          autoPlay
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
         />
       </div>
